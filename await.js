@@ -24,7 +24,6 @@ function createPost(post) {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
 
-            //const error = true;
             const error = false;
 
             if (!error) {
@@ -36,15 +35,24 @@ function createPost(post) {
 
         }, 2000);
     })
-
 }
 
-createPost({
-        title: 'Hello from promise',
+//Async/Await - without then - cleaner way
+
+async function init() {
+    await createPost({
+        title: 'Hello from await promise',
         body: 'Promise gives you body'
-    })
-    .then(getPosts)
-    .catch((error) => {
-        getPosts();
-        console.log(error);
-    })
+    });
+    getPosts();
+}
+init();
+
+async function fetchUsers() {
+    const res = await fetch('https://jsonplaceholder.typicode.com/users');
+
+    const data = await res.json();
+    console.log(data);
+
+}
+fetchUsers();
