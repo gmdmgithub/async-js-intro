@@ -1,4 +1,4 @@
 # async-js-intro
 
-Just some samples according to asyc in JS
+Just some samples with async in JS
 _based on traversy media_
