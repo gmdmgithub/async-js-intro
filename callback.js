@@ -8,7 +8,7 @@ const posts = [{
     }
 ]
 
-function getPost() {
+function getPosts() {
     setTimeout(() => {
         let output = '';
         posts.forEach((post) => {
@@ -17,4 +17,17 @@ function getPost() {
         document.body.innerHTML = output;
     }, 1000);
 }
-getPost();
+
+function createPost(post, callback) {
+    setTimeout(() => {
+        posts.push(post);
+        callback();
+    }, 2000);
+}
+
+getPosts();
+
+createPost({
+    title: 'Post 3',
+    body: 'New post 3 '
+}, getPosts);
