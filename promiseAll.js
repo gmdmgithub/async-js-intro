@@ -43,7 +43,7 @@ function createPost(post) {
 const promise1 = Promise.resolve('Hi new promise');
 const promise2 = 10;
 const promise3 = new Promise((resolve, reject) => {
-    setTimeout(resolve, 2000, 'Goodbay');
+    setTimeout(resolve, 2000, 'Goodby');
 });
 
 const promise4 = fetch('https://jsonplaceholder.typicode.com/users')
