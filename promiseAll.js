@@ -50,4 +50,20 @@ const promise4 = fetch('https://jsonplaceholder.typicode.com/users')
     .then(res => res.json());
 
 Promise.all([promise1, promise2, promise3, promise4])
-    .then((values) => console.log(values));
+    .then((values) => {
+        let output = "";
+        values.forEach(value =>{
+            console.log(typeof value);
+            
+            if (typeof value != 'object')
+                output += `<li>${value}</li>`;
+            else{
+                // output += `<li>${JSON.stringify(value)}</li>`;
+                value.forEach(v =>{
+                    output += `<li>${v.name}</li>`;
+                })
+            }
+        })
+        document.querySelector(".container").innerHTML = output;
+        console.log(values)
+    });

@@ -20,7 +20,7 @@ function getPosts() {
     posts.forEach(post => {
       output += `<li>${post.title}</li>`;
     });
-    document.body.innerHTML = output;
+    document.querySelector('.container').innerHTML = output;
   }, 1000);
 }
 
@@ -29,8 +29,8 @@ function createPost(post) {
 
   return new Promise((resolve, reject) => {
     setTimeout(() => {
-      //const error = true;
-      const error = false;
+      
+      const error = false;//simulate the problem
 
       if (!error) {
         posts.push(post);

@@ -14,7 +14,8 @@ function getPosts() {
         posts.forEach((post) => {
             output += `<li>${post.title}</li>`;
         })
-        document.body.innerHTML = output;
+        output +="<br>"
+        document.querySelector('.container').innerHTML = output;
     }, 1000);
 }
 
@@ -53,6 +54,12 @@ async function fetchUsers() {
 
     const data = await res.json();
     console.log(data);
+    let output = '';
+    data.forEach(v =>{
+        output += `<li>${v.name}</li>`;
+    })    
+    
+    document.querySelector(".fetch").innerHTML = output 
 
 }
 fetchUsers();
